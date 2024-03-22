@@ -41,10 +41,10 @@ public class Sketch extends PApplet {
     int intX = 0;
     int intY = 0;
 
-    for (int r = 0; r < 30; r++) {
-      for (int c = 0; c < 30; c++) {
-        intX = 3 + 2 * r * 5;
-        intY = 300 + 3 + 2 * c * 5;
+    for (int i = 0; i < 30; i++) {
+      for (int j = 0; j < 30; j++) {
+        intX = 3 + 2 * i * 5;
+        intY = 300 + 3 + 2 * j * 5;
 
         // draws sqaures
         fill(255);
@@ -54,13 +54,35 @@ public class Sketch extends PApplet {
     }
   }
   
-  /**
-   * Use the modulus operator and an if statement to select the color
-   * Don't loop from 30 to 60 to shift everything over, just add 300 to x.
-   */
-  public void draw_section2() {
 
-  }
+  // draws bottom middle section
+  public void draw_section2() {
+      // x and y position of top left corner the sqaures
+      int intX = 0;
+      int intY = 0;
+      // colour of the sqaures
+      int intRGB;
+  
+      for (int i = 0; i < 30; i++) {
+        for (int j = 0; j < 30; j++) {
+          intX = 300 + 3 + 2 * i * 5;
+          intY = 300 + 3 + 2 * j * 5;
+
+          // calculates colour
+          if (i % 2 == 0) {
+            intRGB = 255;
+          }
+          else {
+            intRGB = 0;
+          }
+
+          // draws sqaures
+          fill(intRGB);
+          noStroke();
+          rect(intX, intY, 5, 5);
+        }
+      }
+    }
 
   /**
    * Use the modulus operator and an if/else statement to select the color.
