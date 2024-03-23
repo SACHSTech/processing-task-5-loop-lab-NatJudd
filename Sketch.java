@@ -53,7 +53,7 @@ public class Sketch extends PApplet {
     }
   }
 
-  // draws bottom middle section
+  // draws bottom middle left section
   public void draw_section2() {
     // x and y position of top left corner the sqaures
     int intX = 0;
@@ -82,7 +82,7 @@ public class Sketch extends PApplet {
     }
   }
 
-  // draws bottom right section
+  // draws bottom middle right section
   public void draw_section3() {
     // x and y position of top left corner the sqaures
     int intX = 0;
@@ -111,11 +111,37 @@ public class Sketch extends PApplet {
     }
   }
 
-  /**
-   * Use the modulus operator and just one 'if' statement to select the color.
-   */
+  // draws bottom right section
   public void draw_section4() {
+    // x and y position of top left corner the sqaures
+    int intX = 0;
+    int intY = 0;
+    // colour of the sqaures
+    int intRGB;
 
+    // calculates the position and amount of sqaures
+    for (int i = 0; i < 30; i++) {
+      for (int j = 0; j < 30; j++) {
+        intX = 900 + 3 + 2 * i * 5;
+        intY = 300 + 3 + 2 * j * 5;
+
+        // calculates colour
+        if (j % 2 == 0) {
+          intRGB = 0;
+        } 
+        else if (i % 2 == 0) {
+          intRGB = 255;
+        }
+        else {
+          intRGB = 0;
+        }
+
+        // draws sqaures
+        fill(intRGB);
+        noStroke();
+        rect(intX, intY, 5, 5);
+      }
+    }
   }
 
   /**
