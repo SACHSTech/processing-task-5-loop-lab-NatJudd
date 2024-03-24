@@ -1,137 +1,240 @@
 import processing.core.PApplet;
 
+/**
+ * draws different patterns in 8 equal sections of the screen using nested for
+ * loops
+ * 
+ * @author: N.Judd
+ */
 public class Sketch extends PApplet {
-	
-	
-  /**
-   * Called once at the beginning of execution, put your size all in this method
-   */
+  // size of the screen
   public void settings() {
-	// put your size call here
     size(1200, 600);
   }
 
-  /** 
-   * Called once at the beginning of execution.  Add initial set up
-   * values here i.e background, stroke, fill etc.
-   */
+  // background rgb
   public void setup() {
     background(45, 150, 207);
   }
 
-  /**
-   * Called repeatedly, anything drawn to the screen goes here
-   */
-  public void draw() {
-	  
-	// sample code, delete this stuff
-    /*
-    stroke(128);
-    line(150, 25, 270, 350);  
+  // draws the outline to seperate the sections
+  public void draw_section_outlines() {
+    stroke(0);
+    noFill();
 
-    stroke(255);
-    line(50, 125, 70, 50);  
-*/
+    // draws bottom row boxes
+    rect(0, 300, 300, 300);
+    rect(300, 300, 300, 300);
+    rect(600, 300, 300, 300);
+    rect(900, 300, 300, 300);
+
+    // draws top row boxes
+    rect(0, 0, 300, 300);
+    rect(300, 0, 300, 300);
+    rect(600, 0, 300, 300);
+    rect(900, 0, 300, 300);
+  }
+
+  // draws bottom left section
+  public void draw_section1() {
+    // x and y position of top left corner the sqaures
+    int intX = 0;
+    int intY = 0;
+
+    // calculates the position and amount of sqaures
+    for (int i = 0; i < 30; i++) {
+      for (int j = 0; j < 30; j++) {
+        intX = 3 + 2 * i * 5;
+        intY = 300 + 3 + 2 * j * 5;
+
+        // draws sqaures
+        fill(255);
+        noStroke();
+        rect(intX, intY, 5, 5);
+      }
+    }
+  }
+
+  // draws bottom middle left section
+  public void draw_section2() {
+    // x and y position of top left corner the sqaures
+    int intX = 0;
+    int intY = 0;
+    // colour of the sqaures
+    int intRGB;
+
+    // calculates the position and amount of sqaures
+    for (int i = 0; i < 30; i++) {
+      for (int j = 0; j < 30; j++) {
+        intX = 300 + 3 + 2 * i * 5;
+        intY = 300 + 3 + 2 * j * 5;
+
+        // calculates colour
+        if (i % 2 == 0) {
+          intRGB = 255;
+        } else {
+          intRGB = 0;
+        }
+
+        // draws sqaures
+        fill(intRGB);
+        noStroke();
+        rect(intX, intY, 5, 5);
+      }
+    }
+  }
+
+  // draws bottom middle right section
+  public void draw_section3() {
+    // x and y position of top left corner the sqaures
+    int intX = 0;
+    int intY = 0;
+    // colour of the sqaures
+    int intRGB;
+
+    // calculates the position and amount of sqaures
+    for (int i = 0; i < 30; i++) {
+      for (int j = 0; j < 30; j++) {
+        intX = 600 + 3 + 2 * i * 5;
+        intY = 300 + 3 + 2 * j * 5;
+
+        // calculates colour
+        if (j % 2 == 0) {
+          intRGB = 0;
+        } else {
+          intRGB = 255;
+        }
+
+        // draws sqaures
+        fill(intRGB);
+        noStroke();
+        rect(intX, intY, 5, 5);
+      }
+    }
+  }
+
+  // draws bottom right section
+  public void draw_section4() {
+    // x and y position of top left corner the sqaures
+    int intX = 0;
+    int intY = 0;
+    // colour of the sqaures
+    int intRGB;
+
+    // calculates the position and amount of sqaures
+    for (int i = 0; i < 30; i++) {
+      for (int j = 0; j < 30; j++) {
+        intX = 900 + 3 + 2 * i * 5;
+        intY = 300 + 3 + 2 * j * 5;
+
+        // calculates colour
+        if (j % 2 == 0) {
+          intRGB = 0;
+        } else if (i % 2 == 0) {
+          intRGB = 255;
+        } else {
+          intRGB = 0;
+        }
+
+        // draws sqaures
+        fill(intRGB);
+        noStroke();
+        rect(intX, intY, 5, 5);
+      }
+    }
+  }
+
+  // draws top left section
+  public void draw_section5() {
+    // x and y position of top left corner the sqaures
+    int intX = 0;
+    int intY = 0;
+
+    // calculates the position and amount of sqaures
+    for (int i = 1; i < 30; i++) {
+      for (int j = i; j < 30; j++) {
+        intX = 3 + 300 - 2 * i * 5;
+        intY = 3 + 2 * j * 5;
+
+        // draws sqaures
+        fill(255);
+        noStroke();
+        rect(intX, intY, 5, 5);
+      }
+    }
+  }
+
+  // draws top middle left section
+  public void draw_section6() {
+    // x and y position of top left corner the sqaures
+    int intX = 0;
+    int intY = 0;
+
+    // calculates the position and amount of sqaures
+    for (int i = 0; i < 30; i++) {
+      for (int j = i; j < 30; j++) {
+        intX = 300 + 3 + 2 * i * 5;
+        intY = 3 + 2 * j * 5;
+
+        // draws sqaures
+        fill(255);
+        noStroke();
+        rect(intX, intY, 5, 5);
+      }
+    }
+  }
+
+  // draws top middle right section
+  public void draw_section7() {
+    // x and y position of top left corner the sqaures
+    int intX = 0;
+    int intY = 0;
+
+    // calculates the position and amount of sqaures
+    for (int i = 0; i <= 30; i++) {
+      for (int j = 0; j < i; j++) {
+        intX = 900 + 3 - 2 * i * 5;
+        intY = 3 + 2 * j * 5;
+
+        // draws sqaures
+        fill(255);
+        noStroke();
+        rect(intX, intY, 5, 5);
+      }
+    }
+  }
+
+  // draws top right section
+  public void draw_section8() {
+    // x and y position of top left corner the sqaures
+    int intX = 0;
+    int intY = 0;
+
+    // calculates the position and amount of sqaures
+    for (int i = 0; i < 30; i++) {
+      for (int j = 0; j <= i; j++) {
+        intX = 900 + 3 + 2 * i * 5;
+        intY = 3 + 2 * j * 5;
+
+        // draws sqaures
+        fill(255);
+        noStroke();
+        rect(intX, intY, 5, 5);
+      }
+    }
+  }
+
+  // draws the output
+  public void draw() {
+    // calls methods
     draw_section_outlines();
     draw_section1();
     draw_section2();
     draw_section3();
     draw_section4();
-	  
     draw_section5();
     draw_section6();
     draw_section7();
     draw_section8();
-
-    
   }
-
-
-  /**
-   * Draw the outlines for all sections
-   */
-  public void draw_section_outlines(){
-    stroke(0);
-    noFill();
-
-    // draw bottom row boxes
-    rect(0,300, 300, 300);
-    rect(300, 300, 300, 300);
-    rect(600, 300, 300, 300);
-    rect(900, 300, 300, 300);
-
-    // draw top row boxes
-    rect(0,0, 300, 300);
-    rect(300, 0, 300, 300);
-    rect(600, 0, 300, 300);
-    rect(900, 0, 300, 300);
-  }
-  
-  /**
-   * draws the bottom left section
-   */
-  public void draw_section1(){
-    int intX = 0;
-    int intY = 0;
-
-    for(int intRow = 0; intRow < 30; intRow++){
-      for(int intColumn = 0; intColumn < 30; intColumn++){
-        intX = 3 + 0;  //Instead of zero, calculate the proper intX location using 'intRow'
-        intY = 300 + 3 + 0; //Instead of zero, calculate the proper intY location using 'intColumn'
-
-        fill(255);
-        noStroke();
-        rect(intX, intY, 5, 5);
-
-      }
-    }
-  }
-
-  /**
-   * Use the modulus operator and an if statement to select the color
-   * Don't loop from 30 to 60 to shift everything over, just add 300 to x.
-   */
-  public void draw_section2(){
-
-  }
-
-  /**
-   * Use the modulus operator and an if/else statement to select the color.
-   * Don't use multiple 'if' statements.
-   */
-  public void draw_section3(){
-
-  }
-
-  /**
-   * Use the modulus operator and just one 'if' statement to select the color.
-   */
-  public void draw_section4(){
-
-  }
-
-  /**
-   * Do NOT use 'if' statements to complete 5-8. Manipulate the loops instead
-   */
-  public void draw_section5(){
-
-  }
-
-  public void draw_section6(){
-
-  }
-
-  public void draw_section7(){
-
-  }
-  
-  public void draw_section8(){
-
-  }
-
-
-
-
-
-
 }
