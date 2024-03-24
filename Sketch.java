@@ -1,7 +1,8 @@
 import processing.core.PApplet;
 
 /**
- * draws different patterns in 8 equal sections of the screen
+ * draws different patterns in 8 equal sections of the screen using nested for
+ * loops
  * 
  * @author: N.Judd
  */
@@ -40,6 +41,7 @@ public class Sketch extends PApplet {
     int intX = 0;
     int intY = 0;
 
+    // calculates the position and amount of sqaures
     for (int i = 0; i < 30; i++) {
       for (int j = 0; j < 30; j++) {
         intX = 3 + 2 * i * 5;
@@ -149,9 +151,9 @@ public class Sketch extends PApplet {
     int intY = 0;
 
     // calculates the position and amount of sqaures
-    for (int i = 0; i < 30; i++) {
-      for (int j = 0; j < i; j++) {
-        intX = 3 + 2 * i * 5;
+    for (int i = 1; i < 30; i++) {
+      for (int j = i; j < 30; j++) {
+        intX = 3 + 300 - 2 * i * 5;
         intY = 3 + 2 * j * 5;
 
         // draws sqaures
