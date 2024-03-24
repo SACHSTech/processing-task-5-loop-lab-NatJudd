@@ -150,7 +150,7 @@ public class Sketch extends PApplet {
 
     // calculates the position and amount of sqaures
     for (int i = 0; i < 30; i++) {
-      for (int j = 0; j <= i; j++) {
+      for (int j = 0; j < i; j++) {
         intX = 3 + 2 * i * 5;
         intY = 3 + 2 * j * 5;
 
@@ -164,7 +164,22 @@ public class Sketch extends PApplet {
 
   // draws top middle left section
   public void draw_section6() {
+    // x and y position of top left corner the sqaures
+    int intX = 0;
+    int intY = 0;
 
+    // calculates the position and amount of sqaures
+    for (int i = 0; i < 30; i++) {
+      for (int j = i; j < 30; j++) {
+        intX = 300 + 3 + 2 * i * 5;
+        intY = 3 + 2 * j * 5;
+
+        // draws sqaures
+        fill(255);
+        noStroke();
+        rect(intX, intY, 5, 5);
+      }
+    }
   }
 
   public void draw_section7() {
